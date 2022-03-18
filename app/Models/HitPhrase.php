@@ -17,4 +17,15 @@ class HitPhrase extends Model
         'margin_top',
         'margin_bottom'
     ];
+    /**
+     * Relationship
+     */
+    public function card()
+    {
+        return $this->belongsTo(Card::class, 'card_id');
+    }
+    public function font()
+    {
+        return $this->belongsTo(Font::class, 'font_id');
+    }
 }

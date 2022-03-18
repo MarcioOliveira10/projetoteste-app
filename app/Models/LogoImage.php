@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class logoImage extends Model
 {
     use HasFactory;
-    protected $fillabel =[
+    protected $fillable = [
         'image_path',
         'position',
         'width',
@@ -19,4 +19,6 @@ class logoImage extends Model
         'margin_bottom_mobile',
         'is_template'
     ];
+
+
 }

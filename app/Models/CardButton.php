@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class CardButton extends Model
 {
@@ -18,4 +19,15 @@ class CardButton extends Model
         'button_icon_color',
         'button_image_path'
     ];
+    /**
+     * Relationships
+     */
+    public  function card()
+    {
+        return $this->belongsTo(Card::class, 'card_id');
+    }
+    public function buttonType()
+    {
+        return $this->belongsTo(ButtonType::class, 'button_type_id');
+    }
 }

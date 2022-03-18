@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use ReflectionFunctionAbstract;
 
 class Card extends Model
 {
@@ -27,4 +28,23 @@ class Card extends Model
         'is_template'
 
     ];
+    /**
+     * Relationships: 
+     * Background_images
+     * Logo_images
+     * Fonts
+     */
+
+     public function backgroundImage()
+     {
+         return $this->belongsTo(BackgroundImage::class, 'background_id');
+     }
+     public function logoImage()
+     {
+         return $this->belongsTo(LogoImage::class,'logo_id');
+     }
+     public function font()
+     {
+         return $this->belongsTo(Font::class, 'font_id');
+     }
 }

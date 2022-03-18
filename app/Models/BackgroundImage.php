@@ -8,5 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class BackgroundImage extends Model
 {
     use HasFactory;
-    protected $fillable = ['image_path', 'is_template'];
+    protected $fillable = [
+        'image_path', 
+        'is_template'
+    ];
 }

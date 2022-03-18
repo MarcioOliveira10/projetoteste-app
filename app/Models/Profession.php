@@ -24,4 +24,15 @@ class Profession extends Model
         'register_number_text',
         'register_number_text_font_size'
     ];
+    /**
+     * Relationship
+     */
+    public function card()
+    {
+        return $this->belongsTo(Card::class, 'card_id');
+    }
+    public function font()
+    {
+        return $this->belongsTo(Font::class, 'font_id');
+    }
 }
