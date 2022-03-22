@@ -5,9 +5,10 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class ProductAddon extends Model
+class SectionProductAddon extends Model
 {
     use HasFactory;
+
     protected $fillable = [
         'section_product_id',
         'title_text',
