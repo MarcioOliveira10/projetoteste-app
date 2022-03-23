@@ -20,7 +20,4 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::get('/cards', function(){
-    return Card::all();
-
-});
+Route::apiResource('people', \App\Http\Controllers\Api\PersonController::class);

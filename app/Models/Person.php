@@ -13,4 +13,8 @@ class Person extends Model
         'lastName',
         'age'
     ];
+    public function address()
+    {
+        return $this->hasOne(Address::class);
+    }
 }
