@@ -21,7 +21,8 @@ class PersonFactory extends Factory
         return [
             'name' => $this->faker->firstName(),
             'lastName' => $this->faker->lastName(),
-            'age' => $this->faker->randomNumber(1,100) 
+            'age' => $this->faker->randomNumber(1,100),
+            'email' => $this->faker->email() 
         ];
     }
 }

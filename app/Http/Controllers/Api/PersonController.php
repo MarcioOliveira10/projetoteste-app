@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use App\Models\Person;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class PersonController extends Controller
 {
@@ -22,7 +23,16 @@ class PersonController extends Controller
      */
     public function index()
     {
-        return $this->person->paginate(10);
+        //return $this->person->paginate(10);
+        //$people = DB::table('people')->get();
+        //foreach ($people as $person){
+        //   echo '<pre>';
+        //    echo $person->name;
+       // }
+       $person = DB::table('people')->where('id', 2)->get();
+       return $person;
+
+
     }
 
     /**
@@ -39,11 +49,12 @@ class PersonController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $person
+     * @param  Person  $person
      * @return \Illuminate\Http\Response
      */
     public function show(Person $person)
     {
+        //$person->load('address');
         return $person;
     }
 

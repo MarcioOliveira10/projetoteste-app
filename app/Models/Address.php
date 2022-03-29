@@ -14,11 +14,16 @@ class Address extends Model
         'city',
         'street',
         'number',
-        'zip_code'
+        'zip_code',
     ];
-
+        
+        //public function person()
+        //{
+        //   return $this->belongsTo(Person::class, 'person_id');
+        //}
     public function person()
     {
-        return $this->belongsTo(Person::class);
+        return $this->belongsTo('App\Models\Person', 'person_id', 'id');
     }
+
 }
