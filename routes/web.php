@@ -1,9 +1,8 @@
 <?php
 
-use App\Mail\newContactMail;
-use Illuminate\Support\Facades\Mail;
+
 use Illuminate\Support\Facades\Route;
-use App\Models\Person;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -19,12 +18,3 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-if(\Illuminate\Support\Facades\App::environment('local')){
-
-    Route::get('/sendmail', function(){
-       $person = \App\Models\Person::factory()->make();
-       Mail::to($person)
-            ->send(new newContactMail($person));
-        return null;
-    });
-}

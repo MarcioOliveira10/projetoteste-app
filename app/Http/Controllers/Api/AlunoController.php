@@ -3,16 +3,12 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Models\Aluno;
+use App\Models\Telefone;
 use Illuminate\Http\Request;
 
-class AddressController extends Controller
+class AlunoController extends Controller
 {
-   // private $Address;
-
-    //public function __construct(Address $address)
-    //{
-       // $this->person = $pe;
-    //}
     /**
      * Display a listing of the resource.
      *
@@ -20,7 +16,15 @@ class AddressController extends Controller
      */
     public function index()
     {
-    
+        // $aluno = Aluno::first();
+         //dd($aluno->telefone()->get());
+         //$aluno = Aluno::find(1);
+         //dd($aluno);
+         //$telefone = Aluno::find(1)->telefone;
+         //return $aluno->name . ' = '.$telefone->numero_telefone;
+         $aluno = Aluno::all();
+         return $aluno;
+         
     }
 
     /**
@@ -31,7 +35,12 @@ class AddressController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $aluno = new Aluno();
+        $aluno->name=$request->name;
+        $aluno->last_name=$request->last_name;
+        $aluno->age=$request->age;
+        $aluno->save();
+        return response()->json($request);
     }
 
     /**
@@ -42,7 +51,7 @@ class AddressController extends Controller
      */
     public function show($id)
     {
-        //
+        return $aluno = Aluno::findOrFail($id);      
     }
 
     /**

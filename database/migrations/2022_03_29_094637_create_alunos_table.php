@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Telefone;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -13,14 +14,11 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('addresses', function (Blueprint $table) {
+        Schema::create('alunos', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('person_id');
-            $table->foreign('person_id')->references('id')->on('people');
-            $table->string('city');
-            $table->string('street');
-            $table->integer('number');
-            $table->string('zip_code');
+            $table->string('name');
+            $table->string('last_name');
+            $table->integer('age');
             $table->timestamps();
         });
     }
@@ -32,6 +30,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('addresses');
+        Schema::dropIfExists('alunos');
     }
 };
